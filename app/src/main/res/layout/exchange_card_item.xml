@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    app:cardCornerRadius="@dimen/default_margin">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_margin">
+
+        <TextView
+            android:id="@+id/tv_currency_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/title_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/tv_you_have"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="@string/mock_currency_name" />
+
+        <TextView
+            android:id="@+id/tv_you_have"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/normal_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/tv_currency_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_currency_name"
+            tools:text="@string/you_have" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ti_value_income"
+            style="@style/TextInputLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/tv_currency_rate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:visibility="visible">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_value_income"
+                style="@style/EditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/value_hint"
+                android:textColor="@color/green" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ti_value_expense"
+            style="@style/TextInputLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/tv_currency_rate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:prefixText="@string/prefix_text_expense">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_value_expense"
+                style="@style/EditText"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/triple_default_margin"
+                android:hint="@string/value_hint"
+                android:textColor="@color/green" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_income_sign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/prefix_text_income"
+            android:textColor="@color/green"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:textSize="@dimen/title_text_size"
+            app:layout_constraintEnd_toStartOf="@+id/ti_value_income"
+            app:layout_constraintTop_toTopOf="@+id/tv_currency_name" />
+
+        <TextView
+            android:id="@+id/tv_expense_sign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/prefix_text_expense"
+            android:textColor="@color/red"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:textSize="@dimen/title_text_size"
+            app:layout_constraintEnd_toStartOf="@+id/ti_value_income"
+            app:layout_constraintTop_toTopOf="@+id/tv_currency_name" />
+
+        <TextView
+            android:id="@+id/tv_currency_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/normal_text_size"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_you_have"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_you_have"
+            tools:text="@string/currency_rate" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

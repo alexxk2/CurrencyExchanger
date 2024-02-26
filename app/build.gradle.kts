@@ -1,11 +1,19 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("androidx.navigation.safeargs.kotlin")
+    id("kotlin-parcelize")
+    //Kotlin symbol processing  for Room
+    id("com.google.devtools.ksp")
+    //Hilt
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
     namespace = "com.example.currencyexchanger"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.currencyexchanger"
@@ -33,15 +41,79 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.appcompat:appcompat:+")
-    implementation("com.google.android.material:material:1.11.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    val retrofit = "2.9.0"
+    val glide = "4.15.0"
+    val navigation = "2.7.6"
+    val lifecycle = "2.7.0"
+    val room = "2.5.2"
+    val hilt = "2.50"
+    val coreKtx = "1.12.0"
+    val appCompat = "1.6.1"
+    val material = "1.11.0"
+    val constraintLayout = "2.1.4"
+    val junit = "4.13.2"
+    val androidxJunit ="1.1.5"
+    val espresso = "3.5.1"
+    val gson = "2.10.1"
+    val splashScreen = "1.0.1"
+    val fragment = "1.6.2"
+    val tinkoffDecoro = "1.3.1"
+
+    implementation("androidx.core:core-ktx:$coreKtx")
+    implementation("androidx.appcompat:appcompat:$appCompat")
+    implementation("com.google.android.material:material:$material")
+    implementation("androidx.constraintlayout:constraintlayout:$constraintLayout")
+    testImplementation("junit:junit:$junit")
+    androidTestImplementation("androidx.test.ext:junit:$androidxJunit")
+    androidTestImplementation("androidx.test.espresso:espresso-core:$espresso")
+
+    //retrofit & Gson converter
+    implementation("com.squareup.retrofit2:converter-gson:$retrofit")
+    implementation("com.squareup.retrofit2:retrofit:$retrofit")
+
+    //Gson
+    implementation("com.google.code.gson:gson:$gson")
+
+    //Splash screen
+    implementation("androidx.core:core-splashscreen:$splashScreen")
+
+    //glide
+    implementation ("com.github.bumptech.glide:glide:$glide")
+    annotationProcessor ("com.github.bumptech.glide:compiler:$glide")
+
+    // Navigation
+    implementation ("androidx.navigation:navigation-fragment-ktx:$navigation")
+    implementation ("androidx.navigation:navigation-ui-ktx:$navigation")
+
+    // ViewModel & LiveData
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle")
+    implementation ("androidx.fragment:fragment-ktx:$fragment")
+
+    // Room
+    implementation ("androidx.room:room-runtime:$room")
+    implementation ("androidx.room:room-ktx:$room")
+    annotationProcessor("androidx.room:room-compiler:$room")
+
+    //Kotlin symbol processing for Room
+    ksp("androidx.room:room-compiler:$room")
+
+    //hilt
+    implementation("com.google.dagger:hilt-android:$hilt")
+    kapt("com.google.dagger:hilt-compiler:$hilt")
+
+    //phone mask
+    implementation("ru.tinkoff.decoro:decoro:$tinkoffDecoro")
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }
