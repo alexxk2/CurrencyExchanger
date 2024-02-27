@@ -28,8 +28,8 @@ class LocalStorageImpl @Inject constructor(
     override suspend fun updateBalance(accountDto: AccountDto) {
 
         prefs.edit().putFloat(EUR_BALANCE,accountDto.eurBalance.toFloat()).apply()
-        prefs.edit().putFloat(EUR_BALANCE,accountDto.eurBalance.toFloat()).apply()
-        prefs.edit().putFloat(EUR_BALANCE,accountDto.eurBalance.toFloat()).apply()
+        prefs.edit().putFloat(USD_BALANCE,accountDto.usdBalance.toFloat()).apply()
+        prefs.edit().putFloat(GBP_BALANCE,accountDto.gbpBalance.toFloat()).apply()
 
     }
 
