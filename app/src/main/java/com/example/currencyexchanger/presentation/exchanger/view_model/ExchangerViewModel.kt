@@ -118,8 +118,8 @@ class ExchangerViewModel @Inject constructor(
         updateJob?.cancel()
         updateJob = viewModelScope.launch(Dispatchers.IO) {
             updateRates()
-            _updateSender.emit(0)
             delay(UPDATE_DELAY)
+            _updateSender.emit(0)
             startRatesUpdate()
         }
     }
