@@ -34,29 +34,29 @@
             android:id="@+id/tv_exchange"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingVertical="@dimen/default_margin"
-            android:textColor="@color/white"
-            android:textSize="@dimen/normal_text_size"
             android:layout_marginEnd="@dimen/default_margin"
-            android:textStyle="bold"
             android:clickable="true"
             android:focusable="true"
+            android:paddingVertical="@dimen/default_margin"
+            android:text="@string/exchange"
+            android:textColor="@color/white"
+            android:textSize="@dimen/normal_text_size"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-           android:text="@string/exchange"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ProgressBar
             android:id="@+id/update_progress_bar"
-            android:layout_marginStart="@dimen/half_default_margin"
             android:layout_width="@dimen/default_margin"
             android:layout_height="@dimen/default_margin"
+            android:layout_marginStart="@dimen/half_default_margin"
             android:indeterminateTint="@color/white"
             android:visibility="gone"
-            tools:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@id/tv_currency_rate"
             app:layout_constraintStart_toEndOf="@id/tv_currency_rate"
-            app:layout_constraintTop_toTopOf="@id/tv_currency_rate" />
+            app:layout_constraintTop_toTopOf="@id/tv_currency_rate"
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -64,9 +64,9 @@
         android:id="@+id/vp_top_list"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:overScrollMode="never"
         android:layout_marginHorizontal="@dimen/half_default_margin"
         android:layout_marginTop="@dimen/half_default_margin"
+        android:overScrollMode="never"
         app:layout_constraintTop_toBottomOf="@id/cl_top_bar" />
 
     <ImageView
@@ -85,9 +85,9 @@
         android:id="@+id/vp_bottom_list"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:overScrollMode="never"
         android:layout_marginHorizontal="@dimen/half_default_margin"
         android:layout_marginTop="@dimen/half_default_margin"
+        android:overScrollMode="never"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_arrow_divider" />
 
@@ -107,8 +107,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cl_top_bar"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toBottomOf="@id/cl_top_bar" />
 
     <ProgressBar
         android:id="@+id/progress_bar"

@@ -42,6 +42,8 @@ class ExchangerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //requireContext().getSharedPreferences("shared_prefs",0).edit().clear().apply()
+
         setViewPagers()
         viewModel.getCurrencies()
         viewModel.getAccountData()
