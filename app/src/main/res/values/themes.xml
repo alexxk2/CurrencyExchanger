@@ -3,6 +3,7 @@
     <style name="Base.Theme.CurrencyExchanger" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:statusBarColor">@color/blue</item>
     </style>
 
     <style name="Theme.CurrencyExchanger" parent="Base.Theme.CurrencyExchanger" />

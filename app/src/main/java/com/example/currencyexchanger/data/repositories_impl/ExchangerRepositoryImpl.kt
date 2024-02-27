@@ -20,9 +20,11 @@ class ExchangerRepositoryImpl @Inject constructor(
 
     override suspend fun getCurrencies(): List<CurrencyItem> {
 
-        return when (val response = networkClient.getCurrencies()) {
+         val balanceResponse = localStorage.getBalance()
+
+        return when (val currenciesResponse = networkClient.getCurrencies()) {
             Response.Error -> emptyList()
-            is Response.Success -> networkConverter.map(response.rates)
+            is Response.Success -> networkConverter.map(currenciesResponse.rates, balanceResponse)
         }
     }
 
